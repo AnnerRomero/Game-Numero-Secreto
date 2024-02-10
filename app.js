@@ -1,13 +1,9 @@
+//Cree la funcion "intentoDeUsuario", colocando el comando "oneclik"; en html
+// dentro de las comillas "intentoDeUsuario();" para conectarlo con js.
+function intentoDeUsuario(){
+    alert("Click desde el boton")
+}
 
-/*
-let elementoP = document.querySelector('p');
-elementoP.innerHTML = "Digite un numero entre 1 y 10";
-
-let elementoP = document.querySelector('p');
-elementoP.innerHTML = "Digite un numero entre 1 y 10";
-
-Este codigo necesitaba ser optimizado, por ello se crea las funcion donde se reduce el codigo
-*/
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
