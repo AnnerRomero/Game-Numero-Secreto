@@ -1,12 +1,5 @@
-//LA Variable numeroSecreto afuera de una funcion es de alcance global y dentro de una funcion es solo de bloque
+
 let numeroSecreto = generaNumeroSecreto();
-
-console.log (numeroSecreto);
-
-function intentoDeUsuario(){
-    alert("Click desde el boton");
-    return;
-}
 
 
 function asignarTextoElemento(elemento, texto){
@@ -23,5 +16,16 @@ asignarTextoElemento('p', 'Elija un numero entre 1 y 20')
 function generaNumeroSecreto () {
     return Math.floor(Math.random()*10)+1;
   
-    
+}
+
+// Funcion para captur el imput (se conecta con el input de HTML)
+
+function verificarIntento(){
+    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value); // parseInt (ffunciona para convertir nuestro datos en numbers)
+    console.log(typeof(numeroDeUsuario)); // Muestra en la consola el tipo de valor que esta ingresando el usuario en la variable
+    console.log(typeof(numeroSecreto));
+    console.log(numeroDeUsuario);
+    console.log (numeroSecreto);
+    console.log(numeroDeUsuario === numeroSecreto); // esta pidiendo que los valores sean de el mismo tipo de dato y de el mismo valor para que sea verdadero "value" y si no que sea falso
+    return;
 }
