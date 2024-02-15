@@ -1,6 +1,8 @@
 
 let numeroSecreto = generaNumeroSecreto();
+let intentos = 1;
 
+console.log(numeroSecreto);
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -19,19 +21,22 @@ function generaNumeroSecreto () {
 }
 
 // Funcion para captur el imput(es decir lo que el usuario ingreso, la entrada) (se conecta con el input de HTML)
-//Se conecto atravez de el ID de la etiqueta input de HTML
+//Se conecto atravez de el ID de la etiqueta input de HTML son el comando "document.getElemenById ()"
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value); 
-   //Condicion if para ayudar a el usuario a encontrar el numero secre<to, estamos llamando una funcion dentro de otro funcion
+
+     console.log(intentos);
     if(numeroDeUsuario === numeroSecreto) {
-        asignarTextoElemento('p', 'Acertaste el número');
+        asignarTextoElemento('p', `Acertaste en ${intentos} ${(intentos === 1) ? 'vez':'veces'} `); // Esta linea es una condicion con operador ternadio, que solo va a funcionar con las comillas ``
     } else {
         if (numeroDeUsuario < numeroSecreto){
             asignarTextoElemento('p','El numero secreto es mayor');
         }else {
             asignarTextoElemento('p','El numero secreto es menor');
         }
+        intentos++;
     }
+   
     return;
 }
 
