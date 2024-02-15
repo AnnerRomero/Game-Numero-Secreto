@@ -18,14 +18,21 @@ function generaNumeroSecreto () {
   
 }
 
-// Funcion para captur el imput (se conecta con el input de HTML)
-
+// Funcion para captur el imput(es decir lo que el usuario ingreso, la entrada) (se conecta con el input de HTML)
+//Se conecto atravez de el ID de la etiqueta input de HTML
 function verificarIntento(){
-    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value); // parseInt (ffunciona para convertir nuestro datos en numbers)
-    console.log(typeof(numeroDeUsuario)); // Muestra en la consola el tipo de valor que esta ingresando el usuario en la variable
-    console.log(typeof(numeroSecreto));
-    console.log(numeroDeUsuario);
-    console.log (numeroSecreto);
-    console.log(numeroDeUsuario === numeroSecreto); // esta pidiendo que los valores sean de el mismo tipo de dato y de el mismo valor para que sea verdadero "value" y si no que sea falso
+    let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value); 
+   //Condicion if para ayudar a el usuario a encontrar el numero secre<to, estamos llamando una funcion dentro de otro funcion
+    if(numeroDeUsuario === numeroSecreto) {
+        asignarTextoElemento('p', 'Acertaste el número');
+    } else {
+        if (numeroDeUsuario < numeroSecreto){
+            asignarTextoElemento('p','El numero secreto es mayor');
+        }else {
+            asignarTextoElemento('p','El numero secreto es menor');
+        }
+    }
     return;
 }
+
+
