@@ -30,7 +30,7 @@ function verificarIntento(){
 
     if(numeroDeUsuario === numeroSecreto) {
         asignarTextoElemento('p', `Acertaste en ${intentos} ${(intentos === 1) ? 'vez':'veces'} `); 
-        document.getElementById('reiniciar').removeAttribute('disabled'); //Esta linea remueve el atributo disable en el boton reiniciar en html, para poder habilitar el boton.
+        document.getElementById('reiniciar').removeAttribute('disabled'); 
 
     }else{
         if (numeroDeUsuario > numeroSecreto){
@@ -51,3 +51,24 @@ function limpiarCaja (){
     document.querySelector('#valorUsuario').value = '';
 }
 
+function condicionesIniciales() {
+    asignarTextoElemento('h1', 'Juego de el numero secreto');
+    asignarTextoElemento('p', 'Elija un numero entre 1 y 10');
+    numeroSecreto = generaNumeroSecreto();
+    console.log(numeroSecreto);
+    intentos = 1;
+    console.log(intentos);
+}
+
+function reiniciarJuego() {
+    //limpiar la caja
+    limpiarCaja();
+    //Indicar mensaje de intervalo
+   
+    //generar el numero aleatorio
+    
+    //Iniciar el numero intentos
+    condicionesIniciales();
+    //Deshabilitar el boton de nuevo  juego
+    document.querySelector('#reiniciar').setAttribute('disabled',true);  
+}
