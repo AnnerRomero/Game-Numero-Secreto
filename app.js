@@ -21,12 +21,10 @@ function generaNumeroSecreto () {
     console.log(` ${numeroGenerado} es el numero secreo`);
     console.log(listaNumeroSorteado);
 
-    // Si ya sorteamos todos los numeros de numeroMaximo entonces ya podemos salirnos del juego....
     if(listaNumeroSorteado.length == numeroMaximo){
         asignarTextoElemento('p','Ya se sortearon el maximo de numeros posibles');
 
     }else{
-     // Si el numero generado esta incluido en la lista entonces..............que haga esto.
         if (listaNumeroSorteado.includes(numeroGenerado)){
             return generaNumeroSecreto();
         }else{
@@ -78,15 +76,9 @@ function condicionesIniciales() {
 }
 
 function reiniciarJuego() {
-    //limpiar la caja
     limpiarCaja();
-    //Indicar mensaje de intervalo
-   
-    //generar el numero aleatorio
-    
-    //Iniciar el numero intentos
+
     condicionesIniciales();
-    //Deshabilitar el boton de nuevo  juego
     document.querySelector('#reiniciar').setAttribute('disabled',true);  
 }
 
