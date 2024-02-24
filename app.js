@@ -1,6 +1,8 @@
 
-let numeroSecreto = generaNumeroSecreto();
-let intentos = 1;
+let numeroSecreto = 0;
+let intentos = 0;
+let listaNumeroSorteado = [];
+let numeroMaximo = 10;
 
 console.log(numeroSecreto);
 
@@ -10,14 +12,29 @@ function asignarTextoElemento(elemento, texto){
     return;
 }
 
-asignarTextoElemento('h1', 'Juego de el numero secreto');
-asignarTextoElemento('p', 'Elija un numero entre 1 y 10');
 
 //Funcion para generar el numero secreto
 
 function generaNumeroSecreto () {
-    return Math.floor(Math.random()*10)+1;
-  
+    let numeroGenerado =  Math.floor(Math.random()*numeroMaximo)+1;
+
+    console.log(` ${numeroGenerado} es el numero secreo`);
+    console.log(listaNumeroSorteado);
+
+    // Si ya sorteamos todos los numeros de numeroMaximo entonces ya podemos salirnos del juego....
+    if(listaNumeroSorteado.length == numeroMaximo){
+        asignarTextoElemento('p','Ya se sortearon el maximo de numeros posibles');
+
+    }else{
+     // Si el numero generado esta incluido en la lista entonces..............que haga esto.
+        if (listaNumeroSorteado.includes(numeroGenerado)){
+            return generaNumeroSecreto();
+        }else{
+            listaNumeroSorteado.push(numeroGenerado);
+            return numeroGenerado;
+        }  
+       
+    }
 }
 
 // Funcion para captur el imput(es decir lo que el usuario ingreso, la entrada) (se conecta con el input de HTML)
@@ -53,11 +70,11 @@ function limpiarCaja (){
 
 function condicionesIniciales() {
     asignarTextoElemento('h1', 'Juego de el numero secreto');
-    asignarTextoElemento('p', 'Elija un numero entre 1 y 10');
+    asignarTextoElemento('p', `Elija un numero entre 1 y ${numeroMaximo}`);
     numeroSecreto = generaNumeroSecreto();
-    console.log(numeroSecreto);
+    
     intentos = 1;
-    console.log(intentos);
+   
 }
 
 function reiniciarJuego() {
@@ -72,3 +89,6 @@ function reiniciarJuego() {
     //Deshabilitar el boton de nuevo  juego
     document.querySelector('#reiniciar').setAttribute('disabled',true);  
 }
+
+condicionesIniciales();
+
